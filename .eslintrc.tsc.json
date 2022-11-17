@@ -1,0 +1,16 @@
+{
+  "extends": [
+     "./.eslintrc.json"
+   ],
+   "rules": {
+     "tsc/config": [2, {
+       "configFile": "./tsconfig.json",
+       "compilerOptions": {
+         "noEmit": true
+       }
+     }]
+   },
+   "plugins": [
+     "tsc"
+   ]
+ }

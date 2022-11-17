@@ -1,0 +1,86 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "rules": {
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+    "@typescript-eslint/interface-name-prefix": "off",
+    "no-underscore-dangle": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      { "allowAny": true, "allowNullish": true }
+    ],
+    "@typescript-eslint/ban-types": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-floating-promises": ["error", { "ignoreIIFE": true }]
+  },
+  "parserOptions": {
+    "tsconfigRootDir": ".",
+    "project": [
+      "./tsconfig.json",
+      "./shared/tsconfig.json"
+    ],
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "overrides": [
+    {
+      "files": "*.stories.tsx",
+      "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "jsx-a11y/mouse-events-have-key-events": "off"
+      }
+    },
+    {
+      "files": "*.{test,spec}.{ts,tsx}",
+      "plugins": ["jest"],
+      "rules": {
+        "jsx-a11y/mouse-events-have-key-events": "off",
+        "react/display-name": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/no-floating-promises": "off"
+      }
+    },
+    {
+      "files": "*.{ts,tsx}",
+      "rules": {
+        "react/jsx-props-no-spreading": "off",
+        "react/no-unescaped-entities": "off",
+        "import/prefer-default-export": "off"
+      }
+    },
+    {
+      "files": ["*.slice.ts", "slice.ts"],
+      "rules": {
+        "no-param-reassign": "off"
+      }
+    }
+  ]
+}
